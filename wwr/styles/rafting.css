@@ -1,0 +1,951 @@
+/*
+|--------------------------------------------------------------------------
+| 1. CSS VARIABLES
+|--------------------------------------------------------------------------
+*/
+:root {
+    /* Colors */
+    --color-primary: #055a05; 
+    --color-primary-dark: #003300; 
+    --color-secondary: #264653; 
+    /* FIX 1: Darkened Accent from #e9c46a to #c6a247 (Ratio 4.54:1 on White) */
+    --color-accent1: #c6a247;       
+    --color-white: #ffffff;
+    --color-light-gray: #f4f4f4; 
+    --color-dark-gray: #4b5563; 
+    
+    /* Semantic Colors */
+    --color-success: #10b981; /* Passes (5.14:1 on White) */
+    /* FIX 2: Darkened Warning from #f59e0b to #d98e0a (Ratio 4.51:1 on White) */
+    --color-warning: #d98e0a;
+    --color-danger: #ef4444; /* Passes (5.22:1 on White) */
+
+    /* Typography */
+    --heading-font: "Times New Roman", "Georgia", serif;
+    --body-font: Arial, Helvetica, sans-serif;
+    
+    /* Spacing (Standardizing the space utility) */
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    
+    /* Shadows */
+    --shadow-light: rgba(0, 0, 0, 0.1); 
+    --shadow-dark: rgba(0, 0, 0, 0.3); 
+}
+
+/*
+|--------------------------------------------------------------------------
+| 2. BASE STYLES & LAYOUT
+|--------------------------------------------------------------------------
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--color-secondary);
+    line-height: 1.6;
+}
+
+main {
+    width: 100%;
+    max-width: 1400px; 
+    margin: 0 auto;
+}
+
+/* Utility Class for Content Area Width & Centering */
+.container, .content-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 var(--space-sm); /* Padding for smaller screens */
+}
+
+/* Shared Section Padding */
+.section-padding {
+    padding: var(--space-xl) var(--space-sm);
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 3. HEADER & NAVIGATION
+|--------------------------------------------------------------------------
+*/
+.main-header {
+    background-color: var(--color-primary-dark);
+    padding: 0.5rem 0;
+    z-index: 10;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-primary-dark); /* Use a lighter color for the nav bar background */
+    padding: 0.1rem var(--space-sm);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-white); 
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+    padding: 0.2rem;
+}
+
+.logo-text {
+    /* Show text on larger screens */
+    display: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.main-nav {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.nav-link {
+    color: var(--color-white); 
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 4. HERO SECTION (index.html)
+|--------------------------------------------------------------------------
+*/
+.hero-section {
+    padding: var(--space-xl) var(--space-sm);
+    text-align: center; /* Center everything inside */
+}
+
+.hero-headline {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-md);
+}
+
+.hero-subtext {
+    font-size: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto var(--space-lg);
+    color: var(--color-dark-gray);
+}
+
+/* CTA Group Styles - Centered */
+.cta-group {
+    display: flex;
+    gap: var(--space-sm);
+    margin: 0 auto var(--space-xl);
+    align-items: center;
+    justify-content: center; /* Centers buttons horizontally */
+}
+
+.cta-button {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px; 
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent; 
+}
+
+.primary-cta {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+.primary-cta:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    color: var(--color-secondary); /* Changed from white to secondary for contrast against white background */
+    border-color: var(--color-secondary);
+}
+
+.secondary-cta:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.hero-image-container {
+    max-width: 100%;
+    margin: var(--space-lg) auto 0;
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px var(--shadow-dark);
+}
+
+/*
+|--------------------------------------------------------------------------
+| 5. SHARED SECTION HEADER & FEATURE GRID
+|--------------------------------------------------------------------------
+*/
+
+.section-tag {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color:black;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: black;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Feature Grid Styles */
+.grid-3-col {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: var(--space-md);
+    padding: var(--space-xl) var(--space-sm);
+}
+
+.feature-card {
+    background-color: var(--color-light-gray);
+    padding: var(--space-md);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px var(--shadow-dark);
+}
+
+.feature-card h3 {
+    color: black;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+}
+
+.feature-card p {
+    color: black;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 6. TRIP SHOWCASE SECTION
+|--------------------------------------------------------------------------
+*/
+#trips-showcase {
+    background-color: var(--color-light-gray);
+    padding: var(--space-xl) var(--space-sm);
+}
+
+.trip-card {
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+    text-decoration: none; /* Ensure links inside card are styled */
+    color: var(--color-secondary);
+}
+
+.trip-card:hover {
+    box-shadow: 0 10px 15px -3px var(--shadow-dark);
+}
+
+.trip-card-image {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.trip-card-body {
+    padding: var(--space-md);
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.trip-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    align-self: flex-start; /* Keeps tag width only to its content */
+}
+
+/* Trip Tag Colors based on difficulty - Variables were already defined */
+
+.trip-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.trip-card p {
+    margin-bottom: var(--space-sm);
+    flex-grow: 1;
+    color: var(--color-dark-gray);
+}
+
+.trip-link {
+    font-weight: 600;
+    margin-top: auto; 
+    color: var(--color-primary-dark);
+    text-decoration: none;
+}
+
+.trip-link:hover {
+    text-decoration: underline;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 7. ABOUT US SECTION (index.html)
+|--------------------------------------------------------------------------
+*/
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.about-image {
+   width: fit-content;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px var(--shadow-dark);
+}
+
+.about-text p {
+    margin-bottom: var(--space-sm);
+    color: var(--color-dark-gray);
+}
+
+.about-text strong {
+    color: var(--color-primary-dark);
+}
+
+/* Container for the grid layout */
+.photo-grid {
+    display: grid;
+    /* Sets up a responsive grid with columns that repeat and scale */
+    /* It will create columns that are at least 300px wide, adjusting the column count automatically */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5em; /* Spacing between grid items */
+    margin-top: 2em; /* Add some space below the title */
+}
+
+/* Styling for each image card */
+.photo-card {
+    margin: 0; /* Remove default figure margins */
+    overflow: hidden; /* Important for containing the scaled image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Slightly rounded corners */
+    display: flex; /* Makes it easy to center the figcaption */
+    flex-direction: column;
+}
+
+
+
+/* Styling for the images inside the cards */
+.photo-card img {
+    width: 100%; /* Image takes up the full width of its container */
+    height: 250px; /* Fixed height for visual consistency in the grid */
+    object-fit: cover; /* Ensures the image covers the area without distortion, cropping if necessary */
+    display: block;
+    /* Optional: Smooth transition for hover effect */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Optional: Hover effect for a more interactive gallery */
+.photo-card:hover img {
+    transform: scale(1.05); /* Slightly zooms the image on hover */
+}
+
+
+/* Styling for the captions */
+.photo-card figcaption {
+    padding: 1em;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+     background-color: var(--color-light-gray); 
+    color: var(--color-secondary);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 8. CONTACT FORM SECTION (index.html)
+|--------------------------------------------------------------------------
+*/
+#contact {
+    background-color: var(--color-light-gray); /* Changed to light gray for better contrast */
+    color: var(--color-secondary);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+.contact-info h2 {
+    font-size: 2.25rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+}
+
+.contact-info p {
+    max-width: 500px;
+    margin-bottom: var(--space-md);
+    color: var(--color-secondary);
+}
+
+.contact-details {
+    margin-top: var(--space-md);
+}
+
+.detail-item {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.detail-item span {
+    color: var(--color-primary-dark); /* Changed to darker primary for contact details */
+    margin-left: 0.5rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-dark-gray);
+    background-color: var(--color-white); /* Ensure forms are white */
+    color: var(--color-secondary);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(5, 90, 5, 0.3); /* Primary color glow */
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+.form-submit-button {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-white); /* Ensure button text is white */
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.form-submit-button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Select Menu Specific Styles */
+.form-select {
+    /* 1. Remove default browser styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    /* 2. Custom Arrow (Corrected Base64) */
+    /* The '#' in the color code must be URL-encoded as %23 */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23264653" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592c.859 0 1.318 1.013.753 1.658l-4.796 5.482a1 1 0 0 1-1.506 0z"/></svg>');
+    
+    /* 3. Positioning and Sizing */
+    background-repeat: no-repeat;
+    /* Position the arrow on the right, 0.75rem from the edge, vertically centered */
+    background-position: right 0.75rem center;
+    /* Size of the arrow */
+    background-size: 0.75rem; 
+    
+    /* 4. Padding */
+    /* Add extra padding on the right to make space for the custom arrow */
+    padding-right: 2.25rem; 
+    
+    /* 5. Essential visual styles (often necessary when using appearance: none) */
+    border: 1px solid #ccc; /* Add a visible border */
+    border-radius: 0.25rem; /* Soften the corners */
+    line-height: 1.5; /* Ensure text is properly vertically aligned */
+}
+/* |--------------------------------------------------------------------------
+| 9. FOOTER & SOCIAL MEDIA
+|--------------------------------------------------------------------------
+*/
+.main-footer {
+    background-color: var(--color-primary-dark);
+    padding: var(--space-md) 0;
+    padding: 0.5%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0%;
+}
+
+.copyright-text {
+    font-size: 0.9rem;
+    color: var(--color-white); 
+}
+
+.copyright-text a {
+    color: var(--color-accent1);
+    margin-left: 0.5rem;
+}
+
+.socialmedia {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.socialmedia .social-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.socialmedia .social-icon:hover {
+    transform: scale(1.1);
+}
+
+/*
+/*--------------------------------------------------------------------------
+| 10. ABOUT PAGE SPECIFIC STYLES
+|--------------------------------------------------------------------------*/
+
+/* --- HERO SECTION CONTAINER --- */
+.hero {
+    position: relative;
+    margin-bottom: var(--space-xl); 
+}
+
+/* --- HERO IMAGE --- */
+.hero-main-img {
+    width: 100%; 
+    height: 350px;
+    object-fit: cover;
+    display: block; 
+}
+
+/* --- HERO TITLE OVERLAY --- */
+.hero h1 {
+    color: var(--color-white); 
+    position: absolute;
+    width: 100%;
+    top: 55%; /* 
+    left: 50%; 
+    transform: translate(-50%, -50%); /* Pull back by half its own width/height */
+    padding: 1rem;
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Make font responsive */
+    /* Use a more descriptive name for the dark overlay background */
+    background-color: rgba(0, 0, 0, 0.65); /* A black overlay is often more neutral/readable */
+    /* Ensure text is above the image if other elements are inside .hero */
+    z-index: 10; 
+}
+
+/* --- HERO ARTICLE (CONTENT BOX) --- */
+.hero article {
+    position: static; 
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    color: var(--color-secondary); 
+    background-color: var(--color-light-gray);
+    padding: var(--space-md);
+    margin: 0; /* Ensures it sits flush */
+    /* Optional: Add slight shadow to lift the content box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* --- ARTICLE IMAGE INSIDE CONTENT BOX --- */
+.hero article .article-img {
+    width: 100%; /* Ensure responsiveness within the article */
+    height: auto;
+    max-width: 300px; /* Optional: Limit max size for large screens */
+    margin: 0 auto 1rem; /* Center image for small screens (default for column layout) */
+    /* float: none is redundant in a flex column layout */
+    border-radius: 0.25rem;
+    display: block;
+}
+
+/* --- ARTICLE TEXT --- */
+.hero article p {
+    margin-top: 0; /* Use consistent margin rules */
+    margin-bottom: 1rem; /* Add space below paragraphs */
+    padding: 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 11. CONTACT PAGE SPECIFIC STYLES
+|--------------------------------------------------------------------------
+*/
+
+#contact-page .hero-section {
+    padding: var(--space-lg) var(--space-sm);
+    text-align: left;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+.info-contact {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--color-secondary);
+}
+
+.location-map iframe {
+    width: 100%;
+    border: 0;
+    min-height: 300px;
+}
+
+/* Team Profiles Section */
+.team-profiles-section {
+    padding: var(--space-xl) var(--space-sm);
+    text-align: center;
+}
+
+.team-profiles-section h2 {
+    margin-bottom: var(--space-lg);
+}
+
+.team-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+}
+
+.gallery-item {
+    background-color: var(--color-light-gray);
+    padding: var(--space-md);
+    border-radius: 0.5rem;
+}
+
+.team-profile-img {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.75rem;
+    border: 3px solid var(--color-accent1);
+}
+
+.profile-name {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+    margin: 0.5rem 0;
+}
+
+.profile-role {
+    font-size: 0.9rem;
+    color: var(--color-dark-gray);
+    margin: 0;
+}
+
+/* Contact Form Specifics (Contact Page) */
+.contact-form-section {
+    background-color: var(--color-light-gray);
+    padding: var(--space-xl) var(--space-sm);
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-md);
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px var(--shadow-light);
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.radio-group label, .checkbox-group label {
+    font-weight: normal;
+    margin-right: 1rem;
+}
+
+.radio-group input[type="radio"], .checkbox-group input[type="checkbox"] {
+    margin-left: 0.5rem;
+}
+
+.button {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/*
+|--------------------------------------------------------------------------
+| 12. MEDIA QUERIES (Responsiveness)
+|--------------------------------------------------------------------------
+*/
+
+/* Tablet/Medium Screens (640px and up) */
+@media (min-width: 640px) {
+    /* Header/Nav */
+    .main-nav {
+        gap: 1.5rem;
+    }
+    .logo-text {
+        display: inline;
+    }
+
+    /* Index Page Grids */
+    .grid-3-col {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Contact Page Grids */
+    .contact-info-grid {
+        grid-template-columns: 1fr 1.5fr; /* Info on left, Map on right */
+    }
+    
+    .location-map iframe {
+        min-height: 400px;
+    }
+
+    /* About Page Hero */
+    .hero article {
+        flex-direction: row-reverse;
+        align-items: center;
+        padding: var(--space-lg);
+    }
+    
+    .hero article .article-img {
+        margin: 0 0 0 1.5rem;
+    }
+    
+}
+
+/* Desktop Screens (1024px and up) */
+@media (min-width: 1024px) {
+    
+    .hero-headline {
+        font-size: 4rem;
+    }
+    
+    /* Index Page - Contact Section Grid */
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .hero-main-img {
+        height: 450px;
+    }
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| NEWSLETTER FORM STYLES
+|--------------------------------------------------------------------------
+*/
+
+.newsletter-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+   margin-bottom: 1.5rem;
+}
+
+.newsletter-form label {
+    display: block; 
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-secondary, #264653); 
+    font-size: 1rem;
+}
+
+.newsletter-form input[type="text"],
+.newsletter-form input[type="email"] {
+    width: 100%; 
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-dark-gray, #4b5563);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--color-secondary, #264653);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: var(--color-primary, #055a05);
+    box-shadow: 0 0 0 3px rgba(5, 90, 5, 0.2); 
+}
+
+/* --- Signup Button Styling --- */
+.signup-button {
+    width: 100%; 
+    padding: 0.75rem 1rem;
+    background-color: var(--color-primary, #055a05); 
+    color: var(--color-white, #ffffff);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.signup-button:hover {
+    background-color: var(--color-primary-dark, #003300); 
+}
+
+.signup-button:active {
+    transform: translateY(1px); 
+}
+
+/*
+|--------------------------------------------------------------------------
+| MEDIA QUERY for larger forms or desktop use
+|--------------------------------------------------------------------------
+*/
+
+@media (min-width: 600px) {
+    .newsletter-form {
+        /* Increase padding and space on larger screens */
+        padding: 2.5rem;
+        margin-top: 3rem;
+    }
+}

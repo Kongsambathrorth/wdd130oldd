@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kongsambathrorth">
+    <meta name="description"
+        content="Contact White Water Rafting Co. for group bookings, trip reservations, or general inquiries. Find our location and meet our team.">
+    <title>Contact Us | White Water Rafting Company </title>
+    <link rel="stylesheet" href="./styles/rafting.css">
+
+
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-container content-wrapper">
+
+            <a href="index.html" class="logo-link">
+                <img src="images/z-splash.png" alt="White Water Rafting Co. logo and splash graphic" class="logo-img"
+                    onerror="this.onerror=null; this.src='https://placehold.co/80x80/264653/ffffff?text=LOGO';">
+                <span class="logo-text"></span>
+            </a>
+
+
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="trips.html" class="nav-link">Trips</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="contact-page" class="page-content">
+
+            <section class="hero-section">
+                <div class="container">
+                    <h1 class="hero-headline" style="text-align: left;">Get in Touch & Find Us</h1>
+
+                    <div class="contact-info-grid">
+                        <div class="company-info">
+                            <h2>Our Info</h2>
+                            <p class="info-contact">
+                                Address:No 29, Street 29, Takhmau town, Cambodia
+                            </p>
+                            <p class="info-contact">
+                                Phone: +855 999 9999
+                            </p>
+                            <p class="info-contact">
+                                Email:kongsambathrorth@gmail.com
+                            </p>
+                        </div>
+
+                        <div class="location-map">
+                            <iframe
+                                src="https://maps.google.com/maps?width=550&amp;height=400&amp;hl=en&amp;q=Takhmau,%20Cambodia&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                                width="100%" height="400" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Map of our location in Takhmau, Cambodia">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-form-section">
+                <div class="container">
+                    <h2>Send Us a Message</h2>
+                    <form action="thanks.html" method="post" id="contact-form">
+                        <div class="form-group">
+                            <label for="username" class="form-label">Name:</label>
+                            <input type="text" id="username" name="username" required class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" id="email" name="email" required class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="purpose" class="form-label">Purpose of Message:</label>
+                            <select id="purpose" name="purpose" class="form-select form-input">
+                                <option value="general" selected>General Inquiry</option>
+                                <option value="reservation">Reservation Question</option>
+                                <option value="suggestion">Website Suggestion</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group radio-group">
+                            <label class="form-label">Preferred Contact Method:</label>
+                            <input type="radio" id="email_contact" name="contact_method" value="email" checked>
+                            <label for="email_contact">Email</label>
+                            <input type="radio" id="phone_contact" name="contact_method" value="phone">
+                            <label for="phone_contact">Phone</label>
+                            <input type="radio" id="whatapp_contact" name="contact_method" value="whatapp">
+                            <label for="whatapp_contact">WhatsApp</label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" value="agreed">
+                            <label for="terms">Please subscribe me to the monthly newsletter</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message:</label>
+                            <textarea id="message" name="message" rows="5" required class="form-textarea"></textarea>
+                        </div>
+                        <button type="submit" class="form-submit-button">Send Message</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="team-profiles-section">
+                <div class="container">
+                    <h2>Our Team of Guides</h2>
+                    <div class="team-gallery">
+                        <div class="gallery-item">
+                            <img src="./images/employee2.png" alt="Guide Liam K." class="team-profile-img"
+                                onerror="this.onerror=null; this.src='https://placehold.co/200x200/264653/ffffff?text=Liam';">
+                            <p class="profile-name">Liam "The Rock" K.</p>
+                            <p class="profile-role">Lead Guide</p>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="./images/employee3.png" alt="Guide Sarah W." class="team-profile-img"
+                                onerror="this.onerror=null; this.src='https://placehold.co/200x200/264653/ffffff?text=Sarah';">
+                            <p class="profile-name">Sarah "Splash" W.</p>
+                            <p class="profile-role">Safety Officer</p>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="./images/employee2.png" alt="Guide Marcus J." class="team-profile-img"
+                                onerror="this.onerror=null; this.src='https://placehold.co/200x200/264653/ffffff?text=Marcus';">
+                            <p class="profile-name">Marcus "Mighty" J.</p>
+                            <p class="profile-role">Operations Specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container content-wrapper">
+            <p class="copyright-text">
+                © 2025 White Water Rafting Company|Kongsambathrorth
+                <a href="images/wireframe-contactus.png" target="_blank" class="wireframe-link">Wireframe</a>
+            </p>
+
+            <div class="socialmedia">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="images/facebook.svg" alt="Facebook Icon" class="social-icon"
+                        onerror="this.onerror=null; this.src='https://placehold.co/30x30/1e40af/ffffff?text=FB';">
+                </a>
+
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="images/linkedin.svg" alt="LinkedIn Icon" class="social-icon"
+                        onerror="this.onerror=null; this.src='https://placehold.co/30x30/000000/ffffff?text=LI';">
+                </a>
+
+                <a href="https://instagram.com" target="_blank">
+                    <img src="images/instagram.png" alt="Instagram Icon" class="social-icon"
+                        onerror="this.onerror=null; this.src='https://placehold.co/30x30/f43f5e/ffffff?text=IG';">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
